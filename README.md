@@ -1,9 +1,8 @@
 # EXPERIMENT-NO--04-Distance measurement using Ultrasonic sensor
- ###  DATE: 
-
-###  NAME: 
-###  ROLL NO :
-###  DEPARTMENT:
+###  DATE: 14/03/2024
+###  NAME: JAYA SURYAA K
+###  ROLL NO : 212222040060
+###  DEPARTMENT: CSE
 ## AIM: 
 To interface an ultrasonic pair and measure the distance in centimeters , calculate the error
  
@@ -39,11 +38,11 @@ distance to an object = ((speed of sound in the air)*time)/2
 speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 ### FIGURE 01 CIRCUIT OF INTERFACING ULTRASONIC SENSOR 
-
-
 ![image](https://user-images.githubusercontent.com/36288975/166430594-5adb4ca9-5a42-4781-a7e6-7236b3766a85.png)
-
-
+### CIRCUIT DIAGRAM
+![WhatsApp Image 2024-03-14 at 21 34 19_9d981554](https://github.com/KjayasuryaaGkarunagaran/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/119476217/e8c617fe-abc7-42dc-b834-ecfa91628032)
+### SCHEMATIC VIEW :
+![WhatsApp Image 2024-03-14 at 21 28 29_95defb5d](https://github.com/KjayasuryaaGkarunagaran/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/119476217/731d3ad0-399c-4463-9d3a-cbf100e292dd)
 
 ### PROCEDURE:
 1.	Connect the circuit as per the circuit diagram 
@@ -59,44 +58,103 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 
 ### PROGRAM 
-```
+
+int echopin=6;
+
+int trigpin=7;
+
+int red=8;
+
+int green=9;
+
+long duration;
+
+float distance;
+
+void setup()
 
 
+{
+
+  pinMode(echopin,INPUT);
+  
+  pinMode(trigpin,OUTPUT);
+  
+  pinMode(red,OUTPUT);
+  
+  pinMode(green,OUTPUT);
+  
+  Serial.begin(9600);
+}
 
 
+void loop()
 
+{
 
-
-
-
-
-`````````
+  
+  digitalWrite(trigpin,LOW);
+  
+  delay(10);
+  
+  digitalWrite(trigpin,HIGH);
+  
+  delay(10);
+  
+  digitalWrite(trigpin,LOW);
+  
+  duration=pulseIn(echopin,HIGH);
+  
+  distance=duration*0.034/2;
+  
+  Serial.print("distance=");
+  
+  Serial.print(distance);
+  
+  Serial.println("cms");
+  
+  if(distance<50)
+  
+  {
+  
+    digitalWrite(green,HIGH);
+    
+    delay(500);
+    
+    digitalWrite(green,LOW);
+    
+    delay(500);
+  }
+  
+  
+  else
+  
+  { 
+  
+    digitalWrite(red,HIGH);
+    
+    delay(500);
+    
+    digitalWrite(red,LOW);
+    
+    delay(500);
+  }
+  
+}
 
 
 ### Distance vs measurement table 
+![WhatsApp Image 2024-03-14 at 21 34 44_085ddd54](https://github.com/KjayasuryaaGkarunagaran/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/119476217/3ec4cd4f-b780-4668-b5ad-4043e98b8242)
 
-			
- 
-			
-			
-			
+                       Average error = sum/ number of readings 
+ ### CHART
+ ![WhatsApp Image 2024-03-14 at 21 34 19_2689d5c9](https://github.com/KjayasuryaaGkarunagaran/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/119476217/63ab0c2f-9acb-437c-b4b8-df87d7a2f42f)
+### OUTPUT 
+### ON DISTANCE (DISTANCE<50)
+![WhatsApp Image 2024-03-14 at 21 41 09_016d04b3](https://github.com/KjayasuryaaGkarunagaran/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/119476217/aaa990ab-cf69-47d6-ad96-fcbffd738593)
 
-![image](https://user-images.githubusercontent.com/36288975/190135379-52ebacd5-ccd5-460f-a4cd-4d0ad1d9b179.png)
-
-			
-			
-			
-			
-			
-			Average error = sum/ number of readings 
- 
-
-
-
-
-
-
-
+### ON DISTANCE (DISTANCE>50)
+![WhatsApp Image 2024-03-14 at 21 34 19_d9affe02](https://github.com/KjayasuryaaGkarunagaran/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/119476217/2cbc6693-da99-4ecb-a1b0-ca3e93f90a35)
 
 ### RESULTS
 
