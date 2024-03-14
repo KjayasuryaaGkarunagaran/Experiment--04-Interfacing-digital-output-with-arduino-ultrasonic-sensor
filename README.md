@@ -157,7 +157,7 @@ void loop()
 ![WhatsApp Image 2024-03-14 at 21 34 19_d9affe02](https://github.com/KjayasuryaaGkarunagaran/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/119476217/2cbc6693-da99-4ecb-a1b0-ca3e93f90a35)
 
 ### RESULTS
-
+Thus the program for the distance measurement using Ultrasonic sensor is been implemented successfully.
 
 
  
